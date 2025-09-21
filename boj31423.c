@@ -33,7 +33,7 @@ void main() {
 	int sum = 0;
 	for(int i=0; i<n; i++) {
 		scanf("%s", buffer);
-		MAP[i].len = strlen(buffer);
+		MAP[i].len = len(buffer);
 		MAP[i].locate = sum;
 		sum += MAP[i].len;
 		strcat(str, buffer);

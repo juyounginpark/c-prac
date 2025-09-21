@@ -1,0 +1,1 @@
+n,a[26],r,x,i;char b[101];main(){for(scanf("%d",&n);n--;r+=x){scanf("%s",b);for(i=0,x=1;b[i];i++){if(a[b[i]-97]&&b[i-1]!=b[i])x=0;a[b[i]-97]=1;}for(i=0;i<26;a[i++]=0);}{printf("%d",r);}}
