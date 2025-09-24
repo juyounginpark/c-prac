@@ -15,11 +15,13 @@ int main() {
 	for(int i = 0; a[i]; i++) temp[alen-1-i] = a[i];
 	strcpy(a, temp);
 	puts(a);
-	for(int i = 0; i < 120; i++) {
+	while(1) {
 		if(blen == alen) {
 			if(!strcmp(a, b)) break;
 		}
 		add();
+		printf("A:%s\n", a);
+		printf("B:%s\n\n", b);
 	}
 	for(int i = 0; i <= 9; i++) printf("%d ", nums[i]);
 	puts("");
