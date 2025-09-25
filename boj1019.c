@@ -20,8 +20,6 @@ int main() {
 			if(!strcmp(a, b)) break;
 		}
 		add();
-		printf("A:%s\n", a);
-		printf("B:%s\n\n", b);
 	}
 	for(int i = 0; i <= 9; i++) printf("%d ", nums[i]);
 	puts("");
