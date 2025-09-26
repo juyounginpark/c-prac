@@ -1,56 +1,30 @@
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
 int op[300001];
 int n;
 
-void max() {
-	int max = -1;
-	int index = 0;
-	for(int i = 0; i < n; i++) {
-		if(op[i] == 31) continue;
-		if(max < op[i]) {
-			max = op[i];
-			index = i;
-		}
-	} 
-
-	op[index] = 0;
-}
-
-void min() {
-	int min = 31;
-	int index = 0;
-	for(int i = 0; i < n; i++) {
-		if(op[i] == 0) continue;
-		if(min > op[i]) {
-			min = op[i];
-			index = i;
-		}
-	}
-	op[index] = 31;
-}
-void del(int n) {
-	for(int i = 0; i < n; i++) {
-		max();
-		min();
-	}
+int compare(const void* a, const void* b) {
+	int x = *(const int*)a;
+    int y = *(const int*)b;
+	return(x - y);
 }
 
 int main() {
 	scanf("%d", &n);
-
+	if(!n) {
+		putchar('0');
+		return 1;
+	}
 	for(int i = 0; i < n; i++) {
 		scanf("%d", &op[i]);
 	}
-	int level = 0;
-	int r = round( n * 0.15 );
-	del(r);
+	qsort(op, n, sizeof(int), compare);
 
+	int r = round(n * 0.15);
 	float sum = 0;
-	for(int i = 0; i < n; i++) {
-		if(op[i] == 31) continue;
+	for(int i = r; i < n - r; i++) {
 		sum += op[i];
 	}
-
-	printf("%.0f\n", round(sum/(n-(2*r))));
+	printf("%.0f\n", round(sum/(n - r*2)));
 }
