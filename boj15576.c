@@ -1,13 +1,11 @@
 #include <stdio.h>
-#include <string.h>
-char A[100001], B[100001], C[100002];
 int len(char *s) {
 	int res = 0;
 	while(s[res++]);
 	return res - 1;
 }
 
-void add() {
+void add(char *A, char *B, char *C) {
 	int alen = len(A);
 	int blen = len(B);
 	int clen = (alen >= blen ? alen : blen) + 1;
@@ -23,21 +21,22 @@ void add() {
 
 }
 
-void printReverse() {
+void printReverse(char *C) {
 	if(C[len(C)-1]-'0') putchar(C[len(C)-1]);
 	for(int i = len(C) - 2; i >= 0; i--) {
 		putchar(C[i]);
 	}
 }
 
+char A[300001], B[300001], RES[10000000];
 int main() {
-	strcpy(A, "0");
-	strcpy(B, "1");
-	
-	add();
-	printReverse();
+	scanf("%s %s", A, B);
+	add(A, "0", RES);
+	add(A, "0", RES);
+	printReverse(RES);
 
 
 
     
 }
+
